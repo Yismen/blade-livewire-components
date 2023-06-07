@@ -1,0 +1,42 @@
+{
+    "name": "dainsys/blade-livewire-components",
+    "description": "Blade components for laravel app and packages.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yismen Jorge",
+            "email": "yismen.jorge@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^8.0|^9.0|^10.0",
+        "livewire/livewire": "^2.10"
+    },
+    "require-dev": {
+        "orchestra/testbench": "7.x-dev",
+        "nunomaduro/collision": "v6.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dainsys\\Component\\": "src/"
+        },
+        "files": []
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dainsys\\Component\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dainsys\\Component\\ComponentServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
