@@ -1,6 +1,6 @@
 {
     "name": "dainsys/blade-livewire-components",
-    "description": "Blade components for laravel app and packages.",
+    "description": "Blade components for laravel-livewire app and packages.",
     "type": "library",
     "license": "MIT",
     "authors": [

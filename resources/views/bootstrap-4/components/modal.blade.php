@@ -1,8 +1,6 @@
 @props([
 'modalName',
-'title',
 'footer',
-'eventName',
 'titleClass' => '',
 'backdrop' => true
 ])
@@ -16,7 +14,9 @@
             ]) }} role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-bold {{ $titleClass }}">{{ $title }}</h5>
+                    @isset($header)
+                    {{ $header }}
+                    @endisset
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -36,18 +36,18 @@
 </div>
 @push('scripts')
 <script>
-    document.addEventListener('{{ $eventName }}', (event) => {
+    document.addEventListener('{{ $modalName }}', (event) => {
         let element = $('#' + '{{ $modalName }}');
 
         element.modal('show');
 
         element.on('shown.bs.modal', function (event) {
             let firstInput = $(element).find('input[type=text],textarea,select').filter(':visible:first');
-
+            
             firstInput.focus();
         });
     })
-    document.addEventListener('closeAllModals', (event) => {
+    document.addEventListener('closeModal', (event) => {
         let element = $('#' + '{{ $modalName }}');
         element.modal('hide');
     })

@@ -31,12 +31,12 @@ class ComponentServiceProvider extends AuthServiceProvider
         ], 'component:config');
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/dainsys/component')
+            __DIR__ . "/../resources/views/{$this->preset}/" => resource_path('views/vendor/component')
         ], 'component:views');
     }
 
     protected function bootLoads()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'component');
+        $this->loadViewsFrom(__DIR__ . "/../resources/views/{$this->preset}/", 'component');
     }
 }

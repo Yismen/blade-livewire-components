@@ -1,14 +1,15 @@
 @props([
 'field',
+'value',
+'type' => 'checkbox',
 'required' => true,
-'value'
 ])
 
 @php
 $id = $value ?? rand();
 @endphp
 <div class="custom-control custom-switch">
-    <input type="checkbox" id="{{ $field }}-{{ $id }}" value="{{ $id }}" wire:model='{{ $field }}' {{
+    <input type="{{ $type }}" id="{{ $field }}-{{ $id }}" value="{{ $id }}" wire:model='{{ $field }}' {{
         $attributes->class([
     'custom-control-input',
     'is-invalid' => $errors->has($field)
